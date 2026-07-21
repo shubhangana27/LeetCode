@@ -5,36 +5,21 @@
 #         self.next = next
 class Solution:
     def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        l1_str = ""
-        current = l1
-        while current:
-            l1_str = str(current.val) + l1_str  # Reverse order
-            current = current.next
+        dummy=ListNode()
+        cur=dummy
+
+        carry=0
+        while l1 or l2 or carry:
+            v1=l1.val if l1 else 0
+            v2=l2.val if l2 else 0
+
+            val= v1 + v2 + carry
+            carry=val//10
+            val=val%10
+            cur.next=ListNode(val)
+
+            cur=cur.next
+            l1=l1.next if l1 else None
+            l2=l2.next if l2 else None
         
-        # Convert l2 to string (digits in reverse order as stored)
-        l2_str = ""
-        current = l2
-        while current:
-            l2_str = str(current.val) + l2_str  # Reverse order
-            current = current.next
-        
-        # Convert strings to integers, add them
-        num1 = int(l1_str) if l1_str else 0
-        num2 = int(l2_str) if l2_str else 0
-        total = num1 + num2
-        
-        # Convert total back to linked list
-        if total == 0:
-            return ListNode(0)
-        
-        # Create result linked list in reverse order
-        total_str = str(total)
-        temp = ListNode(0)
-        current = temp
-        
-        # Iterate through string in reverse
-        for digit in reversed(total_str):
-            current.next = ListNode(int(digit))
-            current = current.next
-        
-        return temp.next
+        return dummy.next
