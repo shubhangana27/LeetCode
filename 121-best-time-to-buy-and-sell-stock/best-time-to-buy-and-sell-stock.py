@@ -7,4 +7,4 @@ class Solution:
                 min_p=price
             elif price-min_p>max_p:
                 max_p=price-min_p
-        return max_p 
+        return max_p
