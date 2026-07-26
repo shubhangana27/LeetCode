@@ -9,24 +9,3 @@ class Solution:
             dic[joint_i].append(i)
             
         return list(dic.values())
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-
-
