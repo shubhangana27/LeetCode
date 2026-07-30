@@ -7,4 +7,4 @@ class Solution:
             for s in strs[1:]:
                 if i>=len(s) or s[i]!=char:
                     return strs[0][:i]
-        return strs[0]
+        return strs[0] 
