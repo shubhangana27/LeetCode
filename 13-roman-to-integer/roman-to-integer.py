@@ -8,6 +8,3 @@ class Solution:
             else:
                 value=value+roman_map[s[i]]
         return value
-
-
-
